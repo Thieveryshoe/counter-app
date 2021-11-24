@@ -3,45 +3,36 @@ import React, { Component } from "react";
 class Counter extends Component {
   state = {
     count: 0,
-    // tags: ["tag1", "tag2", "tag3"],
-    tags: [],
   };
 
-  renderTags() {
-    if (this.state.tags.length === 0) return <p>There are no tags</p>;
-<<<<<<< HEAD
-    return (
-      <ul>
-        {this.state.tags.map((t) => (
-          <li key={t}>{t}</li>
-        ))}
-      </ul>
-    );
-  }
+  formatCount = () => {
+    const { count } = this.state; // object destructuring
+    return count === 0 ? "Zero" : count;
+  };
+
+  getBadgeClass = () => {
+    return this.state.count === 0
+      ? "badge m-2 bg-warning text-dark"
+      : "badge m-2 bg-primary";
+  };
+
+  handleIncrement = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
 
   render() {
     return (
       <>
-        {/* this method of rendering uses js truthy and falsey logic */}
-        {this.state.tags.length === 0 && <p>Please create a new tag</p>}
-        {this.renderTags()}
+        <span className={this.getBadgeClass()}>{this.formatCount()}</span>
+        <button
+          className="btn btn-secondary btn-sm"
+          onClick={this.handleIncrement}
+        >
+          Increment
+        </button>
       </>
     );
   }
-=======
-    return (
-      <ul>
-        {this.state.tags.map((t) => (
-          <li key={t}>{t}</li>
-        ))}
-      </ul>
-    );
-  }
-
-  render() {
-    return <>{this.renderTags()}</>;
-  }
->>>>>>> 175e959f4358457d455f61e9cdded0c6dc299e2a
 }
 
 export default Counter;
