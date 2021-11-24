@@ -26,6 +26,7 @@ class Counter extends Component {
         <span className={this.getBadgeClass()}>{this.formatCount()}</span>
         <button
           className="btn btn-secondary btn-sm"
+          // pass a reference to the function, not the function
           onClick={this.handleIncrement}
         >
           Increment
