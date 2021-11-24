@@ -9,6 +9,7 @@ class Counter extends Component {
 
   renderTags() {
     if (this.state.tags.length === 0) return <p>There are no tags</p>;
+<<<<<<< HEAD
     return (
       <ul>
         {this.state.tags.map((t) => (
@@ -27,6 +28,20 @@ class Counter extends Component {
       </>
     );
   }
+=======
+    return (
+      <ul>
+        {this.state.tags.map((t) => (
+          <li key={t}>{t}</li>
+        ))}
+      </ul>
+    );
+  }
+
+  render() {
+    return <>{this.renderTags()}</>;
+  }
+>>>>>>> 175e959f4358457d455f61e9cdded0c6dc299e2a
 }
 
 export default Counter;
