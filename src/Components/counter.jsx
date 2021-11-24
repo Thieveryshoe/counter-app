@@ -3,26 +3,23 @@ import React, { Component } from "react";
 class Counter extends Component {
   state = {
     count: 0,
+    // tags: ["tag1", "tag2", "tag3"],
+    tags: [],
   };
 
-  formatCount() {
-    const { count } = this.state; // object destructuring
-    return count === 0 ? "Zero" : count;
-  }
-
-  render() {
+  renderTags() {
+    if (this.state.tags.length === 0) return <p>There are no tags</p>;
     return (
-      <>
-        <span className={this.getBadgeClass()}>{this.formatCount()}</span>
-        <button className="btn btn-secondary btn-sm">Increment</button>
-      </>
+      <ul>
+        {this.state.tags.map((t) => (
+          <li key={t}>{t}</li>
+        ))}
+      </ul>
     );
   }
 
-  getBadgeClass() {
-    return this.state.count === 0
-      ? "badge m-2 bg-warning text-dark"
-      : "badge m-2 bg-primary";
+  render() {
+    return <>{this.renderTags()}</>;
   }
 }
 
