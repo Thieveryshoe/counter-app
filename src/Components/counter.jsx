@@ -19,7 +19,13 @@ class Counter extends Component {
   }
 
   render() {
-    return <>{this.renderTags()}</>;
+    return (
+      <>
+        {/* this method of rendering uses js truthy and falsey logic */}
+        {this.state.tags.length === 0 && <p>Please create a new tag</p>}
+        {this.renderTags()}
+      </>
+    );
   }
 }
 
